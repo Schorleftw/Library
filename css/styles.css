@@ -61,14 +61,34 @@ body {
 
 .card {
     border: 1px solid black;
+    background-color: white;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: var(--footer-font-size);
+    gap: 10px;
+    padding: 20px;
+    border: none
+}
+
+.card > * {
+    flex: 1;
+}
+
+.card > button {
+    width: 100%;
+}
+
+.card > .read {
+    background-color: #ff9c9c;
 }
 
 button {
     cursor: pointer;
+    border: none;
+    border-radius: 10px;
 }
 
 .footer {
