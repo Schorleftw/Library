@@ -1,0 +1,81 @@
+:root {
+    --main-font-size: 3rem;
+    --footer-font-size: 2rem;
+    --grey: #f0eef1;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 10px;
+    /* Changed the root font-size to 10px to make the
+    mental conversion of the font size easier when
+    using rem */
+}
+
+html, body {
+    min-height: 100vh;
+    font-family: "Roboto", sans-serif;;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    font-size: var(--main-font-size);
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    box-shadow: 5px 0px 5px grey;
+    position: relative;
+}
+
+.main-content {
+    background-color: var(--grey);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Setting flex to 1 to make the main content stretch and always place footer at the bottom */
+}
+
+.addBook {
+    margin: 30px;
+    font-size: var(--footer-font-size);
+    font-weight: bold;
+    border: none;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    grid-auto-rows: 250px;
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    cursor: pointer;
+}
+
+.footer {
+    font-size: var(--footer-font-size);
+    font-weight: bold;
+    background-color: var(--grey);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
