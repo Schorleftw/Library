@@ -51,6 +51,13 @@ function addToDom() {
     }
 }
 
+function openForm() {
+    document.querySelector(".overlay").style.display = "block";
+    document.querySelector(".form-popup").style.display = "block";
+}
+
+addBook.addEventListener("click", openForm);
+
 // example user input
 addBookToLibrary("yikes", "Björn", "300", "not read yet");
 addBookToLibrary("The Hobbit", "J.R.R Tolkin", "295", "not read yet");

@@ -19,6 +19,7 @@ html {
 
 html, body {
     min-height: 100vh;
+    width: 100vw;
     font-family: "Roboto", sans-serif;;
 }
 
@@ -50,6 +51,59 @@ body {
     font-size: var(--footer-font-size);
     font-weight: bold;
     border: none;
+}
+
+.form-popup {
+    display: none;
+    position: absolute;
+    bottom: 50%;
+    top: 50%;
+    margin-top: -50px;;
+    margin-left: -100px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: var(--grey);
+    font-size: var(--footer-font-size);
+    border-radius: 10px;
+    gap: 10px;
+    width: 250px;
+}
+
+.form > * {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    flex: 1;
+}
+
+.form > button {
+    background-color: lightgreen;
+}
+
+.form > p {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.is-read {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .grid {
