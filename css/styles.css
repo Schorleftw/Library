@@ -57,9 +57,7 @@ body {
     display: none;
     position: absolute;
     bottom: 50%;
-    top: 50%;
-    margin-top: -50px;;
-    margin-left: -100px;
+    top: 30%;
 }
 
 .form {
