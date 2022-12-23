@@ -18,30 +18,45 @@ Book.prototype.info = function() {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
 }
 
+Book.prototype.changeRead = function() {
+    if (this.read === "not read yet") {
+        return this.read = "read";
+    }
+    else {
+        return this.read = "not read yet"
+    }
+}
+
 function addBookToLibrary(title, author, pages, read) {
     return myLibrary.push(new Book(title, author, pages, read));
 }
 
-function addToDom() {
-    for (let i = 0; i <= myLibrary.length - 1; i++) {
-        //für jedes Objekt im Array eine Card erstellen und die Klasse "card" adden
+function addToDom(titleName, authorName, numberOfPages, readStatus) {
+        // für jedes Objekt im Array eine Card erstellen und die Klasse "card" adden
         const newCard = document.createElement("div");
         newCard.classList.add("card");
+        // Add a data-set attribute to associate the DOM elements with the object in the array
+        newCard.dataset.id = myLibrary.length -1;
 
         // Erstellen der p Elemente
         const title = document.createElement("p");
-        title.innerText = myLibrary[i].title
+        title.innerText = titleName
 
         const author = document.createElement("p");
-        author.innerText = myLibrary[i].author
+        author.innerText = authorName
 
         const pages = document.createElement("p");
-        pages.innerText = myLibrary[i].pages
+        pages.innerText = numberOfPages
 
         // Erstellen der Buttons
         const readButton = document.createElement("button");
-        readButton.classList.add("read");
-        readButton.innerText = "Not read";
+        if (readStatus === "read") {
+            readButton.classList.add("read")
+        }
+        else {
+            readButton.classList.add("notRead");
+        }
+        readButton.innerText = readStatus;
 
         const deleteButton = document.createElement("button");
         deleteButton.innerText = "Remove";
@@ -49,7 +64,23 @@ function addToDom() {
         // Append the Div to the grid and the Elements to the Card
         cards.appendChild(newCard);
         newCard.append(title, author, pages, readButton, deleteButton);
-    }
+
+        // Add Event Listener to Delete Button
+        deleteButton.addEventListener("click", function removeFromDom() {
+            myLibrary.splice(newCard.dataset.id);
+            newCard.remove();
+        });
+
+        readButton.addEventListener("click", function changeStatus() {
+            readButton.innerText = myLibrary[newCard.dataset.id].changeRead();
+
+            if (readButton.className === "notRead") {
+                readButton.className = "read"
+            }
+            else if (readButton.className === "read") {
+                readButton.className = "notRead"
+            }
+        });
 }
 
 function openForm() {
@@ -81,18 +112,19 @@ submitButton.addEventListener("click", function submit(e) {
     }
 
     addBookToLibrary(title, author, pages, read);
-    addToDom();
+    addToDom(title, author, pages, read);
     closeForm();
 });
 
 
 addBook.addEventListener("click", openForm);
 
+
 // example user input
 // addBookToLibrary("yikes", "Björn", "300", "not read yet");
 // addBookToLibrary("The Hobbit", "J.R.R Tolkin", "295", "not read yet");
 
-addToDom();
+// addToDom();
 
 //addBook.addEventListener("click", addToDom);
 

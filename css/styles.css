@@ -133,8 +133,12 @@ body {
     width: 100%;
 }
 
-.card > .read {
+.card > .notRead {
     background-color: #ff9c9c;
+}
+
+.card > .read {
+    background-color: lightgreen;
 }
 
 button {
