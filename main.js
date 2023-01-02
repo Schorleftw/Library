@@ -67,11 +67,17 @@ function addToDom(titleName, authorName, numberOfPages, readStatus) {
 
         // Add Event Listener to Delete Button
         deleteButton.addEventListener("click", function removeFromDom() {
-            myLibrary.splice(newCard.dataset.id);
+            /* 
+            using delete instead of splice to not change the index of
+            the created Objects in the array. Otherwise the changeRead()
+            method doesnt work on the last Object after removal of another Object
+            */
+            delete myLibrary[newCard.dataset.id];
             newCard.remove();
         });
 
         readButton.addEventListener("click", function changeStatus() {
+            console.log(newCard.dataset.id);
             readButton.innerText = myLibrary[newCard.dataset.id].changeRead();
 
             if (readButton.className === "notRead") {
