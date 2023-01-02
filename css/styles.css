@@ -19,8 +19,8 @@ html {
 
 html, body {
     min-height: 100vh;
-    /* CHANGE WIDTH TO DEFAULT TO TEST */
-    width: 100vw;
+    /* Dont change width to 100vw when the default auto is better */
+    /* width: 100vw; */
     font-family: "Roboto", sans-serif;;
 }
 
